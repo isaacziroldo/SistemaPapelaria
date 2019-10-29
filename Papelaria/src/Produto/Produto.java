@@ -5,12 +5,10 @@
  */
 package Produto;
 
-/**
- *
- * @author isaacziroldo
- */
 abstract class Produto {
     
+    private String marca;
+    private float valor;
     
     
 }

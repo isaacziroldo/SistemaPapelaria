@@ -1,12 +1,13 @@
 
 package Produto;
 
-public class Caderno {
+public class Caderno extends Produto implements Manipulacao {
     
     private int qtdeFolhas;
     private String tamanho;
     private String tipo;
     private boolean capaDura;
+    
     
     public Caderno() {
         
@@ -74,6 +75,16 @@ public class Caderno {
      */
     public void setCapaDura(boolean capaDura) {
         this.capaDura = capaDura;
+    }
+
+    @Override
+    public void Cadastro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Consulta() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

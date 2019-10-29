@@ -1,7 +1,7 @@
 
 package Produto;
 
-public class Papel {
+public class Papel extends Produto implements Manipulacao {
     
     private String cor;
     private String tipo;
@@ -9,6 +9,7 @@ public class Papel {
     private float altura;
     private int gramatura;
     private boolean paltado;
+    
     
     
     public Papel(){
@@ -108,6 +109,16 @@ public class Papel {
      */
     public void setPaltado(boolean paltado) {
         this.paltado = paltado;
+    }
+
+    @Override
+    public void Cadastro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Consulta() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

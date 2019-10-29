@@ -2,7 +2,7 @@
 package Produto;
 
 
-public class CaixaLapis {
+public class CaixaLapis extends Produto implements Manipulacao {
     
     private int quantidade;
     private boolean colorido;
@@ -43,6 +43,16 @@ public class CaixaLapis {
      */
     public void setColorido(boolean colorido) {
         this.colorido = colorido;
+    }
+
+    @Override
+    public void Cadastro() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Consulta() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
