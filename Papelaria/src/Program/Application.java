@@ -1,53 +1,95 @@
-
 package Program;
 
 import Pedido.Pedido;
+import Produto.Caderno;
 import Produto.CaixaLapis;
+import Produto.Papel;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class Application {
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        
-        
-        List <Pedido> cxLapis = new ArrayList<>();
-        
+
+        List<Pedido> cxLapis = new ArrayList<>();
+
         int menu = 0;
-        
+
         do {
             System.out.println("======== MENU ========");
-            System.out.println("1 --- Cadastrar Pedido " + 
-                    "\n2 --- Consultar Pedido" + 
-                    "\n3 --- Listar Pedidos"+ 
-                    "\n4 --- Sair");
+            System.out.println("1 --- Cadastrar Produto "
+                    + "\n2 --- Cadastrar Pedido"
+                    + "\n3 --- Consultar Pedido"
+                    + "\n4 --- Listar Pedidos"
+                    + "\n5 --- Sair");
             menu = sc.nextInt();
-            
-            switch(menu){
+
+            switch (menu) {
                 case 1:
-                    
-                    
-                    
+                    System.out.println("======== MENU - CADASTRO ========");
+                    System.out.println("1 --- Caderno"
+                            + "\n2 --- Caixa de Lápis"
+                            + "\n3 --- Papel"
+                    );
+                    int subMenu = sc.nextInt();
+                    System.out.println("Quantos produtos pretende cadastrar?");
+                    int n = sc.nextInt();
+
+                    switch (subMenu) {
+                        case 1:
+                            List<Caderno> dbCaderno = new ArrayList<>();
+                            for (int i = 0; i < n; i++) {
+                                Caderno papel = new Caderno();
+                                papel.Cadastro();
+                                dbCaderno.add(papel);
+                            }
+                            for (Caderno caderno : dbCaderno) {
+                                System.out.println(caderno);
+                            }
+                            break;
+                        case 2:
+                            List<CaixaLapis> dbCxLapis = new ArrayList<>();
+                            for (int i = 0; i < n; i++) {
+                                CaixaLapis papel = new CaixaLapis();
+                                papel.Cadastro();
+                                dbCxLapis.add(papel);
+                            }
+                            for (CaixaLapis lapis : dbCxLapis) {
+                                System.out.println(lapis);
+                            }
+                            break;
+                        case 3:
+                            List<Papel> dbPapel = new ArrayList<>();
+                            for (int i = 0; i < n; i++) {
+                                Papel papel = new Papel();
+                                papel.Cadastro();
+                                dbPapel.add(papel);
+                            }
+                            for (Papel papel : dbPapel) {
+                                System.out.println(papel);
+                            }
+                            break;
+                    }
+
                     break;
                 case 2:
-                    
-                    break;    
+
+                    break;
                 case 3:
-                    
+
                     break;
                 case 4:
-                    
+
                     break;
-                default: 
+                default:
                     System.exit(0);
                     break;
             }
-     
-        } while (menu != 4);
-        
+
+        } while (menu != 5);
+
     }
-    
+
 }

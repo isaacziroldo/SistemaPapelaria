@@ -130,7 +130,7 @@ public class Caderno extends Produto implements Manipulacao {
         System.out.println("Capadura?(T/F)");
         setCapaDura(sc.nextBoolean());
             
-        sc.close();
+        
         return false;
         
     }

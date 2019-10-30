@@ -2,6 +2,7 @@ package Produto;
 
 import java.util.Scanner;
 import java.lang.reflect.Field;
+import java.util.Locale;
 
 public class CaixaLapis extends Produto implements Manipulacao {
 
@@ -77,6 +78,7 @@ public class CaixaLapis extends Produto implements Manipulacao {
 
     @Override
     public boolean Cadastro() {
+        Locale.setDefault(Locale.US);
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Cadastrando novo caderno");
@@ -90,7 +92,7 @@ public class CaixaLapis extends Produto implements Manipulacao {
         System.out.println("Colorido?(T/F)");
         setColorido(sc.nextBoolean());
 
-        sc.close();
+        
         return true;
     }
 

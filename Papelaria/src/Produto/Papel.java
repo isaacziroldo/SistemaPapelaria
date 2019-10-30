@@ -155,6 +155,9 @@ public class Papel extends Produto implements Manipulacao {
         setCor(sc.nextLine());
         System.out.println("Tipo?");
         setTipo(sc.nextLine());
+        System.out.println("Largura?");
+        setLargura(sc.nextFloat());
+        sc.nextLine();
         System.out.println("Altura?");
         setAltura(sc.nextFloat());
         sc.nextLine();
@@ -163,7 +166,7 @@ public class Papel extends Produto implements Manipulacao {
         sc.nextLine();
         System.out.println("Paltado?");
         setPaltado(sc.nextBoolean());
-        sc.close();
+        
         return true;
     }
 
