@@ -5,25 +5,34 @@
  */
 package Produto;
 
-abstract class Produto {
+public abstract class Produto {
+	private static int lastId;
+	private int id;
+	private String marca;
+	private float valor;
 
-    private String marca;
-    private float valor;
+	public Produto() {
+		this.id = lastId++;
+	}
 
-    public String getMarca() {
-        return marca;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
+	public String getMarca() {
+		return marca;
+	}
 
-    public float getValor() {
-        return valor;
-    }
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
 
-    public void setValor(float valor) {
-        this.valor = valor;
-    }
+	public float getValor() {
+		return valor;
+	}
+
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
 
 }

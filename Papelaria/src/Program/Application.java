@@ -124,7 +124,7 @@ public class Application {
                     break;
             }
 
-        } while (menu != 5);
+        } while (menu != 6);
 
     }
 
