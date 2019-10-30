@@ -11,7 +11,7 @@ public class Pedido implements Manipulacao{
    
     private float totalpedido;
     public  List cxLapis;
-    private List<Pedido> papel = new ArrayList<>();
+   
     private List caderno;
     
     public Pedido(){
@@ -35,13 +35,7 @@ public class Pedido implements Manipulacao{
         this.cxLapis = cxLapis;
     }
 
-    public List getPapel() {
-        return papel;
-    }
-
-    public void setPapel(List papel) {
-        this.papel = papel;
-    }
+    
 
     public List getCaderno() {
         return caderno;
