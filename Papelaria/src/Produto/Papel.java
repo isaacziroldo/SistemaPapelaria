@@ -1,32 +1,32 @@
-
 package Produto;
 
+import java.util.Scanner;
+import java.lang.reflect.Field;
+
 public class Papel extends Produto implements Manipulacao {
-    
+
     private String cor;
     private String tipo;
     private float largura;
     private float altura;
     private int gramatura;
     private boolean paltado;
-    
-    
-    
-    public Papel(){
-        
+
+    public Papel() {
+
     }
-    
-    public Papel(String cor, String tipo, float largura, float altura, int gramatura, boolean paltado){
-        
+
+    public Papel(String cor, String tipo, float largura, float altura, int gramatura, boolean paltado) {
+
         this.cor = cor;
         this.tipo = tipo;
         this.largura = largura;
         this.altura = altura;
         this.gramatura = gramatura;
         this.paltado = paltado;
-        
+
     }
-    
+
     /**
      * @return the cor
      */
@@ -112,15 +112,64 @@ public class Papel extends Produto implements Manipulacao {
     }
 
     @Override
-    public void Cadastro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        String newLine = System.getProperty("line.separator");
+
+        result.append(this.getClass().getName());
+        result.append(" Object {");
+        result.append(newLine);
+
+        // determine fields declared in this class only (no fields of superclass)
+        Field[] fields = this.getClass().getDeclaredFields();
+
+        // print field names paired with their values
+        for (Field field : fields) {
+            result.append("  ");
+            try {
+                result.append(field.getName());
+                result.append(": ");
+                // requires access to private field:
+                result.append(field.get(this));
+            } catch (IllegalAccessException ex) {
+                System.out.println(ex);
+            }
+            result.append(newLine);
+        }
+        result.append("}");
+
+        return result.toString();
     }
 
     @Override
-    public void Consulta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    public boolean Cadastro() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Cadastrando novo caderno");
+        System.out.println("Marca?");
+        setMarca(sc.nextLine());
+        System.out.println("Valor?");
+        setValor(sc.nextFloat());
+        sc.nextLine();
+        System.out.println("Cor?");
+        setCor(sc.nextLine());
+        System.out.println("Tipo?");
+        setTipo(sc.nextLine());
+        System.out.println("Altura?");
+        setAltura(sc.nextFloat());
+        sc.nextLine();
+        System.out.println("Gramatura?");
+        setGramatura(sc.nextInt());
+        sc.nextLine();
+        System.out.println("Paltado?");
+        setPaltado(sc.nextBoolean());
+        sc.close();
+        return true;
     }
-    
-    
-    
+
+    @Override
+    public String Consulta() {
+        return toString();
+    }
+
 }

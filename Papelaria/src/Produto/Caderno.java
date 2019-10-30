@@ -1,6 +1,9 @@
 
 package Produto;
 
+import java.util.Scanner;
+import java.lang.reflect.Field;
+
 public class Caderno extends Produto implements Manipulacao {
     
     private int qtdeFolhas;
@@ -76,16 +79,66 @@ public class Caderno extends Produto implements Manipulacao {
     public void setCapaDura(boolean capaDura) {
         this.capaDura = capaDura;
     }
+    
+    @Override
+	public String toString() {
+		StringBuilder result = new StringBuilder();
+		String newLine = System.getProperty("line.separator");
+
+		result.append(this.getClass().getName());
+		result.append(" Object {");
+		result.append(newLine);
+
+		// determine fields declared in this class only (no fields of superclass)
+		Field[] fields = this.getClass().getDeclaredFields();
+
+		// print field names paired with their values
+		for (Field field : fields) {
+			result.append("  ");
+			try {
+				result.append(field.getName());
+				result.append(": ");
+				// requires access to private field:
+				result.append(field.get(this));
+			} catch (IllegalAccessException ex) {
+				System.out.println(ex);
+			}
+			result.append(newLine);
+		}
+		result.append("}");
+
+		return result.toString();
+	}
 
     @Override
-    public void Cadastro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean Cadastro() {
+            
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Cadastrando novo caderno");
+	System.out.println("Marca?");
+	setMarca(sc.nextLine());
+	System.out.println("Valor?");
+        setValor(sc.nextFloat());
+        sc.nextLine();
+        System.out.println("Quantidade de Folhas?");
+        setQtdeFolhas(sc.nextInt());
+        sc.nextLine();
+        System.out.println("Qual o tamanho?");
+        setTamanho(sc.nextLine());
+        System.out.println("Qual o tipo de caderno?");
+        setTipo(sc.nextLine());
+        System.out.println("Capadura?(T/F)");
+        setCapaDura(sc.nextBoolean());
+            
+        sc.close();
+        return false;
+        
     }
 
-    @Override
-    public void Consulta() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+	@Override
+	public String Consulta() {
+		return toString();
+	}
     
     
     

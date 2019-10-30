@@ -10,13 +10,12 @@ import java.util.List;
 public class Pedido implements Manipulacao{
    
     private float totalpedido;
-    private List cxLapis;
+    public  List cxLapis;
     private List papel;
     private List caderno;
     
     public Pedido(){
-        
-        
+     
       
     }
 
@@ -55,14 +54,14 @@ public class Pedido implements Manipulacao{
     
 
     @Override
-    public void Cadastro() {
-        
-    }
+	public boolean Cadastro() {
+		return false;
+	}
 
-    @Override
-    public void Consulta() {
-        
-    }
+	@Override
+	public String Consulta() {
+		return null;
+	}
     
     
         
