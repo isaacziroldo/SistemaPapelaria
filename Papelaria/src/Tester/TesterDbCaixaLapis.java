@@ -17,13 +17,14 @@ public class TesterDbCaixaLapis {
     
     public static void main(String[] args) {
 		List<CaixaLapis> dbCxLapis = new ArrayList<>();
-		for (int i = 0; i < 2; i++) {
-			CaixaLapis papel = new CaixaLapis();
-			papel.Cadastro();
-			dbCxLapis.add(papel);
-		}
-		for (CaixaLapis lapis : dbCxLapis)
-			System.out.println(lapis);
+                            for (int i = 0; i < 3; i++) {
+                                CaixaLapis lapis = new CaixaLapis();
+                                lapis.Cadastro();
+                                dbCxLapis.add(lapis);
+                            }
+                            for (CaixaLapis lapis : dbCxLapis) {
+                                System.out.println(lapis);
+                            }
 	}
     
 }
