@@ -11,7 +11,7 @@ public class Pedido implements Manipulacao{
    
     private float totalpedido;
     public  List cxLapis;
-    private List papel;
+    private List<Pedido> papel = new ArrayList<>();
     private List caderno;
     
     public Pedido(){

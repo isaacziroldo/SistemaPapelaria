@@ -41,9 +41,9 @@ public class Application {
                         case 1:
                             List<Caderno> dbCaderno = new ArrayList<>();
                             for (int i = 0; i < n; i++) {
-                                Caderno papel = new Caderno();
-                                papel.Cadastro();
-                                dbCaderno.add(papel);
+                                Caderno caderno = new Caderno();
+                                caderno.Cadastro();
+                                dbCaderno.add(caderno);
                             }
                             for (Caderno caderno : dbCaderno) {
                                 System.out.println(caderno);
@@ -52,9 +52,9 @@ public class Application {
                         case 2:
                             List<CaixaLapis> dbCxLapis = new ArrayList<>();
                             for (int i = 0; i < n; i++) {
-                                CaixaLapis papel = new CaixaLapis();
-                                papel.Cadastro();
-                                dbCxLapis.add(papel);
+                                CaixaLapis lapis = new CaixaLapis();
+                                lapis.Cadastro();
+                                dbCxLapis.add(lapis);
                             }
                             for (CaixaLapis lapis : dbCxLapis) {
                                 System.out.println(lapis);
@@ -87,9 +87,9 @@ public class Application {
                     System.exit(0);
                     break;
             }
-
+            
         } while (menu != 5);
-
+        
     }
 
 }
