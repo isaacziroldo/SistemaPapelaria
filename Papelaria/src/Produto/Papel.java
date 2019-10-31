@@ -2,6 +2,7 @@ package Produto;
 
 import java.util.Scanner;
 import java.lang.reflect.Field;
+import java.util.Locale;
 
 public class Papel extends Produto implements Manipulacao {
 
@@ -111,40 +112,14 @@ public class Papel extends Produto implements Manipulacao {
         this.paltado = paltado;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder result = new StringBuilder();
-        String newLine = System.getProperty("line.separator");
-
-        result.append(this.getClass().getName());
-        result.append(" Object {");
-        result.append(newLine);
-
-        // determine fields declared in this class only (no fields of superclass)
-        Field[] fields = this.getClass().getDeclaredFields();
-
-        // print field names paired with their values
-        for (Field field : fields) {
-            result.append("  ");
-            try {
-                result.append(field.getName());
-                result.append(": ");
-                // requires access to private field:
-                result.append(field.get(this));
-            } catch (IllegalAccessException ex) {
-                System.out.println(ex);
-            }
-            result.append(newLine);
-        }
-        result.append("}");
-
-        return result.toString();
-    }
+    
 
     @Override
 
     public boolean Cadastro() {
+        Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Cadastrando novo caderno");
         System.out.println("Marca?");
         setMarca(sc.nextLine());
@@ -166,13 +141,19 @@ public class Papel extends Produto implements Manipulacao {
         sc.nextLine();
         System.out.println("Paltado?");
         setPaltado(sc.nextBoolean());
-        
+
         return true;
     }
 
     @Override
     public String Consulta() {
-        return toString();
+        return super.toString()
+                + " | Cor: " + getCor()
+                + " | Tipo: " + getTipo()
+                + " | Largura: " + getLargura() + "cm"
+                + " | Altura: " + getAltura() + "cm"
+                + " | Gramatura: " + getGramatura()
+                + " | Paltado: " + isPaltado();
     }
 
 }

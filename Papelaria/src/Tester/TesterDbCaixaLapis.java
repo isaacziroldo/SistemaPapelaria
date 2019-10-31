@@ -17,7 +17,7 @@ public class TesterDbCaixaLapis {
     
     public static void main(String[] args) {
 		List<CaixaLapis> dbCxLapis = new ArrayList<>();
-                            for (int i = 0; i < 3; i++) {
+                            for (int i = 0; i < 2; i++) {
                                 CaixaLapis lapis = new CaixaLapis();
                                 lapis.Cadastro();
                                 dbCxLapis.add(lapis);

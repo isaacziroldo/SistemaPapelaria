@@ -23,7 +23,7 @@ public class Application {
             System.out.println("======== MENU ========");
             System.out.println("1 --- Cadastrar Produto "
                     + "\n2 --- Cadastrar Pedido"
-                    + "\n3 --- Consultar Produtos" 
+                    + "\n3 --- Consultar Produtos"
                     + "\n4 --- Consultar Pedido"
                     + "\n5 --- Listar Pedidos"
                     + "\n6 --- Sair");
@@ -31,6 +31,7 @@ public class Application {
 
             switch (menu) {
                 case 1:
+                    sc.nextLine();
                     System.out.println("======== MENU - CADASTRO ========");
                     System.out.println("1 --- Caderno"
                             + "\n2 --- Caixa de Lápis"
@@ -47,8 +48,9 @@ public class Application {
                                 Caderno caderno = new Caderno();
                                 caderno.Cadastro();
                                 dbCaderno.add(caderno);
+                                System.out.println("CADASTRADO COM SUCESSO!");
                             }
-                            
+
                             break;
                         case 2:
 
@@ -56,8 +58,9 @@ public class Application {
                                 CaixaLapis lapis = new CaixaLapis();
                                 lapis.Cadastro();
                                 dbCxLapis.add(lapis);
+                                System.out.println("CADASTRADO COM SUCESSO!");
                             }
-                            
+
                             break;
                         case 3:
 
@@ -65,18 +68,18 @@ public class Application {
                                 Papel papel = new Papel();
                                 papel.Cadastro();
                                 dbPapel.add(papel);
+                                System.out.println("CADASTRADO COM SUCESSO!");
                             }
-                            
+
                             break;
                     }
 
                     break;
                 case 2:
-                    
 
                     break;
                 case 3:
-                    
+
                     System.out.println("======== MENU - PRODUTOS ========");
                     System.out.println("1 --- Caderno"
                             + "\n2 --- Caixa de Lápis"
@@ -84,28 +87,24 @@ public class Application {
                             + "\n4 --- Listar todos os produtos"
                     );
                     subMenu = sc.nextInt();
-                    
 
                     switch (subMenu) {
                         case 1:
 
-                            
                             for (Caderno caderno : dbCaderno) {
-                                System.out.println(caderno);
+                                System.out.println(caderno.Consulta());
                             }
                             break;
                         case 2:
 
-                            
                             for (CaixaLapis lapis : dbCxLapis) {
-                                System.out.println(lapis);
+                                System.out.println(lapis.Consulta());
                             }
                             break;
                         case 3:
 
-                            
                             for (Papel papel : dbPapel) {
-                                System.out.println(papel);
+                                System.out.println(papel.Consulta());
                             }
                             break;
                         case 4:
