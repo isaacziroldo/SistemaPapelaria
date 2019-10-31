@@ -99,10 +99,10 @@ public class Caderno extends Produto implements Manipulacao {
         setTamanho(sc.nextLine());
         System.out.println("Qual o tipo de caderno?");
         setTipo(sc.nextLine());
-        System.out.println("Capadura?(T/F)");
+        System.out.println("Capadura?(true/false)");
         setCapaDura(sc.nextBoolean());
 
-        return false;
+        return true;
 
     }
 

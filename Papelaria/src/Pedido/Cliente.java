@@ -1,6 +1,10 @@
 package Pedido;
 
-public class Cliente {
+import Produto.Manipulacao;
+import java.util.Locale;
+import java.util.Scanner;
+
+public class Cliente implements Manipulacao {
     
     private String nome;
     private String cpf;
@@ -58,6 +62,32 @@ public class Cliente {
      */
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+    
+    @Override
+    public String toString() {
+        return " | Nome: " + getNome()
+                + " | CPF: " + getCpf()
+                + " | Telefone: " + getTelefone();
+    }
+
+    @Override
+    public boolean Cadastro() {
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nome do Cliente: ");
+        setNome(sc.nextLine());
+        System.out.println("CPF: ");
+        setCpf(sc.nextLine());
+        System.out.println("Telefone: ");
+        setTelefone(sc.nextLine());
+        
+        return true;
+    }
+
+    @Override
+    public String Consulta() {
+        return toString();
     }
     
     

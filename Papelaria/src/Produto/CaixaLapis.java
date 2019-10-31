@@ -1,7 +1,7 @@
 package Produto;
 
 import java.util.Scanner;
-import java.lang.reflect.Field;
+
 import java.util.Locale;
 
 public class CaixaLapis extends Produto implements Manipulacao {
@@ -61,7 +61,7 @@ public class CaixaLapis extends Produto implements Manipulacao {
         sc.nextLine();
         System.out.println("Quantidade?");
         setQuantidade(sc.nextInt());
-        System.out.println("Colorido?(T/F)");
+        System.out.println("Colorido?(true/false)");
         setColorido(sc.nextBoolean());
 
         return true;

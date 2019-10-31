@@ -1,62 +1,105 @@
-
 package Pedido;
 
-import Produto.CaixaLapis;
-import Produto.Manipulacao;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class Pedido implements Manipulacao{
-   
-    private float totalpedido;
-    public  List cxLapis;
-   
-    private List caderno;
-    
-    public Pedido(){
-     
-      
+import Produto.Caderno;
+import Produto.CaixaLapis;
+import Produto.Manipulacao;
+import Produto.Papel;
+import Produto.Produto;
+import java.util.ArrayList;
+
+public class Pedido implements Manipulacao {
+
+    private static int lastId;
+    private int id;
+    private Data data;
+    private Cliente cliente;
+    private float totalPedido;
+    private List<CaixaLapis> caixasLapis;
+    private List<Papel> papeis;
+    private List<Caderno> cadernos;
+
+    static {
+        lastId = 1;
     }
 
-    public float getTotalpedido() {
-        return totalpedido;
+    public Pedido() {
+        this.id = lastId++;
+        caixasLapis = new ArrayList<>();
+        papeis = new ArrayList<>();
+        cadernos = new ArrayList<>();
     }
 
-    public void setTotalpedido(float totalpedido) {
-        this.totalpedido = totalpedido;
+    public int getId() {
+        return id;
     }
 
-    public List getCxLapis() {
-        return cxLapis;
+    public Data getData() {
+        return data;
     }
 
-    public void setCxLapis(List cxLapis) {
-        this.cxLapis = cxLapis;
+    public void setData(Data data) {
+        this.data = data;
     }
 
-    
-
-    public List getCaderno() {
-        return caderno;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setCaderno(List caderno) {
-        this.caderno = caderno;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
-    
-    
+
+    public List<CaixaLapis> getCaixasLapis() {
+        return caixasLapis;
+    }
+
+    public void setCaixasLapis(List<CaixaLapis> caixasLapis) {
+        this.caixasLapis = caixasLapis;
+    }
+
+    public List<Papel> getPapeis() {
+        return papeis;
+    }
+
+    public void setPapeis(List<Papel> papeis) {
+        this.papeis = papeis;
+    }
+
+    public List<Caderno> getCadernos() {
+        return cadernos;
+    }
+
+    public void setCadernos(List<Caderno> cadernos) {
+        this.cadernos = cadernos;
+    }
+
+    public float getTotalPedido() {
+        return totalPedido;
+    }
 
     @Override
-	public boolean Cadastro() {
-		return false;
-	}
+    public boolean Cadastro() {
+        System.out.println("Cadastro de novo pedido:");
+        this.cliente = new Cliente();
+        cliente.Cadastro();
+        System.out.println("Registre o Pedido: ");
+        Caderno caderno = new Caderno();
+        caderno.Cadastro();
+        cadernos.add(caderno);
+        return true;
+    }
 
-	@Override
-	public String Consulta() {
-		return null;
-	}
-    
-    
-        
+    @Override
+    public String Consulta() {
+        return "CLIENTE" + "\n=========="
+                + "\nID: " + getId()
+                + cliente.Consulta()
+                + "\n=========="
+                + "\nPedidos"
+                + "\n=========="
+                + "\n" + cadernos;
+    }
+
 }

@@ -139,7 +139,7 @@ public class Papel extends Produto implements Manipulacao {
         System.out.println("Gramatura?");
         setGramatura(sc.nextInt());
         sc.nextLine();
-        System.out.println("Paltado?");
+        System.out.println("Paltado?(true/false)");
         setPaltado(sc.nextBoolean());
 
         return true;
