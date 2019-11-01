@@ -88,6 +88,12 @@ public class Pedido implements Manipulacao {
         Caderno caderno = new Caderno();
         caderno.Cadastro();
         cadernos.add(caderno);
+        Papel papel = new Papel();
+        papel.Cadastro();
+        papeis.add(papel);
+        CaixaLapis cxLapis = new CaixaLapis();
+        cxLapis.Cadastro();
+        caixasLapis.add(cxLapis);
         return true;
     }
 
@@ -99,7 +105,9 @@ public class Pedido implements Manipulacao {
                 + "\n=========="
                 + "\nPEDIDOS"
                 + "\n=========="
-                + "\n" + cadernos;
+                + "\n" + cadernos 
+                + "\n" + papeis 
+                + "\n" + caixasLapis;
     }
 
 }
