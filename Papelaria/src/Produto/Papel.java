@@ -144,9 +144,8 @@ public class Papel extends Produto implements Manipulacao {
 
         return true;
     }
-
-    @Override
-    public String Consulta() {
+    
+    public String toString(){
         return super.toString()
                 + " | Cor: " + getCor()
                 + " | Tipo: " + getTipo()
@@ -154,6 +153,11 @@ public class Papel extends Produto implements Manipulacao {
                 + " | Altura: " + getAltura() + "cm"
                 + " | Gramatura: " + getGramatura()
                 + " | Paltado: " + isPaltado();
+    }
+
+    @Override
+    public String Consulta() {
+        return toString();
     }
 
 }

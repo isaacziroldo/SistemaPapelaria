@@ -66,12 +66,16 @@ public class CaixaLapis extends Produto implements Manipulacao {
 
         return true;
     }
-
-    @Override
-    public String Consulta() {
+    
+    public String toString(){
         return super.toString()
                 + " | Quantidade: " + getQuantidade()
                 + " | Colorido: " + isColorido();
+    }
+
+    @Override
+    public String Consulta() {
+        return toString();
     }
 
 }

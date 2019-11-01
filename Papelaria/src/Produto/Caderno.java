@@ -80,8 +80,6 @@ public class Caderno extends Produto implements Manipulacao {
         this.capaDura = capaDura;
     }
 
-    
-
     @Override
     public boolean Cadastro() {
         Locale.setDefault(Locale.US);
@@ -106,13 +104,17 @@ public class Caderno extends Produto implements Manipulacao {
 
     }
 
+    public String toString() {
+        return super.toString() 
+                + " | Quantidade de Folhas: " + getQtdeFolhas() 
+                + " | Tamanho: " + getTamanho()
+                + " | Tipo: " + getTipo() 
+                + " | Capadura: " + isCapaDura();
+    }
+
     @Override
     public String Consulta() {
-        return super.toString()
-                + " | Quantidade de Folhas: " + getQtdeFolhas()
-                + " | Tamanho: " + getTamanho()
-                + " | Tipo: " + getTipo()
-                + " | Capadura: " + isCapaDura();
+        return this.toString();
     }
 
 }

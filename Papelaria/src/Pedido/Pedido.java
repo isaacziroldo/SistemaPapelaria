@@ -97,7 +97,7 @@ public class Pedido implements Manipulacao {
                 + "\nID: " + getId()
                 + cliente.Consulta()
                 + "\n=========="
-                + "\nPedidos"
+                + "\nPEDIDOS"
                 + "\n=========="
                 + "\n" + cadernos;
     }
