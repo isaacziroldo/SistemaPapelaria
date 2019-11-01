@@ -93,10 +93,10 @@ public class Pedido implements Manipulacao {
         int escolha = 0;
         do {
 
-            System.out.println("Escolha um item para registro: " 
-                    + "\n 1 --- Caderno " 
+            System.out.println("Escolha um item para registro: "
+                    + "\n 1 --- Caderno "
                     + "\n 2 --- Papel "
-                    + "\n 3 --- Caixa de Lápis " 
+                    + "\n 3 --- Caixa de Lápis "
                     + "\n 4 --- Sair ");
 
             Locale.setDefault(Locale.US);
@@ -194,20 +194,24 @@ public class Pedido implements Manipulacao {
 
     public String toString() {
         calculaTotalPedido();
-        return "CLIENTE"
-                + "\n=========="
-                + "\nID: " + getId() + cliente.Consulta()
-                + "\n=========="
-                + "\nDATA DO PEDIDO"
-                + "\n==========" + "\n" + data.Consulta()
-                + "\n==========" + "\nPEDIDOS"
-                + "\n=========="
-                + "\n" + cadernos
-                + "\n" + papeis
-                + "\n" + caixasLapis
-                + "\n TOTAL: "
-                + getTotalPedido();
-
+        String retorno = "CLIENTE" + "\n==========" 
+                + "\nID: " + getId() + cliente.Consulta() + "\n=========="
+                + "\nDATA DO PEDIDO" + "\n==========" 
+                + "\n" + data.Consulta() 
+                + "\n==========" 
+                + "\nPEDIDOS"
+                + "\n==========";
+        for (Caderno caderno : cadernos) {
+            retorno += caderno + "\n";
+        }
+        for (Papel papel : papeis) {
+            retorno += papel + "\n";
+        }
+        for (CaixaLapis caixaLapis : caixasLapis) {
+            retorno += caixaLapis + "\n";
+        }
+        retorno += "\n TOTAL: " + getTotalPedido();
+        return retorno;
     }
 
     @Override
