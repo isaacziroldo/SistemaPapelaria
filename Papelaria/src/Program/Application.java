@@ -119,10 +119,10 @@ public class Application {
 
                     break;
                 case 2:
-				Pedido pedido = new Pedido();
-				pedido.Cadastro();
-				dbPedidos.add(pedido);
-				break;
+                    Pedido pedido = new Pedido();
+                    pedido.Cadastro();
+                    dbPedidos.add(pedido);
+                    break;
                 case 3:
 
                     System.out.println("======== MENU - PRODUTOS ========");
@@ -169,11 +169,22 @@ public class Application {
                     break;
                 case 4:
 
+                    System.out.println("======= DIGITE O CPF =======");
+                    String cpf = sc.nextLine();
+
+                    if (!"".equals(cpf)) {
+                        buscaDbPedido(cpf);
+                    } else {
+                        System.out.println("Valor Inválido");
+                    }
+
                     break;
+
                 case 5:
-				for (Pedido pedidoNoBanco : dbPedidos)
-					System.out.println(pedidoNoBanco);
-				break;
+                    for (Pedido pedidoNoBanco : dbPedidos) {
+                        System.out.println(pedidoNoBanco);
+                    }
+                    break;
                 default:
                     System.exit(0);
                     break;
