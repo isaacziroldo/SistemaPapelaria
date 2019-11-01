@@ -119,8 +119,10 @@ public class Application {
 
                     break;
                 case 2:
-
-                    break;
+				Pedido pedido = new Pedido();
+				pedido.Cadastro();
+				dbPedidos.add(pedido);
+				break;
                 case 3:
 
                     System.out.println("======== MENU - PRODUTOS ========");
@@ -150,7 +152,18 @@ public class Application {
                             }
                             break;
                         case 4:
+                            for (Caderno caderno : dbCaderno) {
+                                System.out.println(caderno.Consulta());
+                            }
+
+                            for (CaixaLapis lapis : dbCxLapis) {
+                                System.out.println(lapis.Consulta());
+                            }
+                            for (Papel papel : dbPapel) {
+                                System.out.println(papel.Consulta());
+                            }
                             break;
+
                     }
 
                     break;
@@ -165,7 +178,8 @@ public class Application {
                     break;
             }
 
-        } while (menu != 6);
+        } while (menu
+                != 6);
 
     }
 

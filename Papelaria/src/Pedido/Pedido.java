@@ -7,6 +7,7 @@ import Produto.CaixaLapis;
 import Produto.Manipulacao;
 import Produto.Papel;
 import Produto.Produto;
+import Program.Application;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Scanner;
@@ -92,11 +93,8 @@ public class Pedido implements Manipulacao {
         int escolha = 0;
         do {
 
-            System.out.println("Escolha um item para registro: "
-                    + "\n 1 --- Caderno "
-                    + "\n 2 --- Papel "
-                    + "\n 3 --- Caixa de Lápis "
-                    + "\n 4 --- Sair ");
+            System.out.println("Escolha um item para registro: " + "\n 1 --- Caderno " + "\n 2 --- Papel "
+                    + "\n 3 --- Caixa de Lápis " + "\n 4 --- Sair ");
 
             Locale.setDefault(Locale.US);
             Scanner sc = new Scanner(System.in);
@@ -104,19 +102,49 @@ public class Pedido implements Manipulacao {
             escolha = sc.nextInt();
             switch (escolha) {
                 case 1:
-                    Caderno caderno = new Caderno();
-                    caderno.Cadastro();
-                    cadernos.add(caderno);
+                    System.out.println("Escolha:\n1 - NOVO caderno\n2 - Caderno já cadastrado");
+                    escolha = sc.nextInt();
+                    switch (escolha) {
+                        case 1:
+                            Caderno caderno = new Caderno();
+                            caderno.Cadastro();
+                            Application.dbCaderno.add(caderno);
+                            cadernos.add(caderno);
+                            break;
+                        case 2:
+                            // AQUI EU BUSCO DO BANCO
+                            break;
+                    }
                     break;
                 case 2:
-                    Papel papel = new Papel();
-                    papel.Cadastro();
-                    papeis.add(papel);
+                    System.out.println("Escolha:\n1 - NOVO Papel\n2 - Papel já cadastrado");
+                    escolha = sc.nextInt();
+                    switch (escolha) {
+                        case 1:
+                            Papel papel = new Papel();
+                            papel.Cadastro();
+                            Application.dbPapel.add(papel);
+                            papeis.add(papel);
+                        case 2:
+                            // AQUI EU BUSCO DO BANCO
+                            break;
+                    }
+
                     break;
                 case 3:
-                    CaixaLapis cxLapis = new CaixaLapis();
-                    cxLapis.Cadastro();
-                    caixasLapis.add(cxLapis);
+                    System.out.println("Escolha:\n1 - NOVO Caixa de Lápis\n2 - Caixa de Lápis já cadastrado");
+                    escolha = sc.nextInt();
+                    switch (escolha) {
+                        case 1:
+                            CaixaLapis cxLapis = new CaixaLapis();
+                            cxLapis.Cadastro();
+                            Application.dbCxLapis.add(cxLapis);
+                            caixasLapis.add(cxLapis);
+                        case 2:
+                            // AQUI EU BUSCO DO BANCO
+                            break;
+                    }
+
                     break;
             }
         } while (escolha != 4);
