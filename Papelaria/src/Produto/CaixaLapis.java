@@ -53,7 +53,7 @@ public class CaixaLapis extends Produto implements Manipulacao {
         Locale.setDefault(Locale.US);
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Cadastrando novo caderno");
+        System.out.println("Cadastrando caixa de lápis");
         System.out.println("Marca?");
         setMarca(sc.nextLine());
         System.out.println("Valor?");
@@ -68,7 +68,8 @@ public class CaixaLapis extends Produto implements Manipulacao {
     }
     
     public String toString(){
-        return super.toString()
+        return "CAIXA DE LÁPIS | "
+                + super.toString()
                 + " | Quantidade: " + getQuantidade()
                 + " | Colorido: " + isColorido();
     }

@@ -105,7 +105,8 @@ public class Caderno extends Produto implements Manipulacao {
     }
 
     public String toString() {
-        return super.toString() 
+        return "CADERNO  | "
+                + super.toString()
                 + " | Quantidade de Folhas: " + getQtdeFolhas() 
                 + " | Tamanho: " + getTamanho()
                 + " | Tipo: " + getTipo() 

@@ -52,7 +52,7 @@ public class Data implements Manipulacao {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
         
-        System.out.println("DATA DO PEDIDO");
+        
         System.out.println("Digite o Dia: ");
         setDia(sc.nextInt());
         System.out.println("Digite o Mês: ");
@@ -64,7 +64,7 @@ public class Data implements Manipulacao {
     }
     
     public String toString(){
-        return " | Data: " + getDia() + "/" + getMes() + "/" + getAno();
+        return "Data: " + getDia() + "/" + getMes() + "/" + getAno();
     }
 
     @Override

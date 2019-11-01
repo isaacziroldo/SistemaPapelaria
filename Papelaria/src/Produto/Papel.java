@@ -120,7 +120,7 @@ public class Papel extends Produto implements Manipulacao {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Cadastrando novo caderno");
+        System.out.println("Cadastrando Papel");
         System.out.println("Marca?");
         setMarca(sc.nextLine());
         System.out.println("Valor?");
@@ -146,7 +146,8 @@ public class Papel extends Produto implements Manipulacao {
     }
     
     public String toString(){
-        return super.toString()
+        return "PAPEL | "
+                + super.toString()
                 + " | Cor: " + getCor()
                 + " | Tipo: " + getTipo()
                 + " | Largura: " + getLargura() + "cm"
