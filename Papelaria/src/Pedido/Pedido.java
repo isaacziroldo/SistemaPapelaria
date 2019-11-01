@@ -83,91 +83,91 @@ public class Pedido implements Manipulacao {
     }
 
     @Override
-    public boolean Cadastro() {
-        System.out.println("Cadastro de novo pedido:");
-        this.cliente = new Cliente();
-        cliente.Cadastro();
-        System.out.println("Data do Pedido: ");
-        this.data = new Data();
-        data.Cadastro();
-        int escolha = 0;
-        do {
+	public boolean Cadastro() {
+		System.out.println("Cadastro de novo pedido:");
+		this.cliente = new Cliente();
+		cliente.Cadastro();
+		System.out.println("Data do Pedido: ");
+		this.data = new Data();
+		data.Cadastro();
+		int escolha = 0;
+		do {
 
-            System.out.println("Escolha um item para registro: " + "\n 1 --- Caderno " + "\n 2 --- Papel "
-                    + "\n 3 --- Caixa de Lápis " + "\n 4 --- Sair ");
+			System.out.println("Escolha um item para registro: " + "\n 1 --- Caderno " + "\n 2 --- Papel "
+					+ "\n 3 --- Caixa de Lápis " + "\n 4 --- Sair ");
 
-            Locale.setDefault(Locale.US);
-            Scanner sc = new Scanner(System.in);
+			Locale.setDefault(Locale.US);
+			Scanner sc = new Scanner(System.in);
 
-            escolha = sc.nextInt();
-            switch (escolha) {
-                case 1:
-                    System.out.println("Escolha:\n1 - NOVO caderno\n2 - Caderno já cadastrado");
-                    escolha = sc.nextInt();
-                    switch (escolha) {
-                        case 1:
-                            Caderno caderno = new Caderno();
-                            caderno.Cadastro();
-                            Application.dbCaderno.add(caderno);
-                            cadernos.add(caderno);
-                            break;
-                        case 2:
-                            // AQUI EU BUSCO DO BANCO
-                            break;
-                    }
-                    break;
-                case 2:
-                    System.out.println("Escolha:\n1 - NOVO Papel\n2 - Papel já cadastrado");
-                    escolha = sc.nextInt();
-                    switch (escolha) {
-                        case 1:
-                            Papel papel = new Papel();
-                            papel.Cadastro();
-                            Application.dbPapel.add(papel);
-                            papeis.add(papel);
-                        case 2:
-                            // AQUI EU BUSCO DO BANCO
-                            break;
-                    }
+			escolha = sc.nextInt();
+			switch (escolha) {
+			case 1:
+				System.out.println("Escolha:\n1 - NOVO caderno\n2 - Caderno já cadastrado");
+				escolha = sc.nextInt();
+				switch (escolha) {
+				case 1:
+					Caderno caderno = new Caderno();
+					caderno.Cadastro();
+					Application.dbCaderno.add(caderno);
+					cadernos.add(caderno);
+					break;
+				case 2:
+					System.out.println("Digite o ID do caderno");
+					int idCaderno = sc.nextInt();
+					caderno = Application.buscaDbCaderno(idCaderno);
+					if (caderno != null)
+						cadernos.add(caderno);
+					else
+						System.out.println("Caderno não encontrado");
+					break;
+				}
+				break;
+			case 2:
+				Papel papel = new Papel();
+				papel.Cadastro();
+				Application.dbPapel.add(papel);
+				papeis.add(papel);
+				break;
+			case 3:
+				CaixaLapis cxLapis = new CaixaLapis();
+				cxLapis.Cadastro();
+				Application.dbCxLapis.add(cxLapis);
+				caixasLapis.add(cxLapis);
+				break;
+			}
+		} while (escolha != 4);
 
-                    break;
-                case 3:
-                    System.out.println("Escolha:\n1 - NOVO Caixa de Lápis\n2 - Caixa de Lápis já cadastrado");
-                    escolha = sc.nextInt();
-                    switch (escolha) {
-                        case 1:
-                            CaixaLapis cxLapis = new CaixaLapis();
-                            cxLapis.Cadastro();
-                            Application.dbCxLapis.add(cxLapis);
-                            caixasLapis.add(cxLapis);
-                        case 2:
-                            // AQUI EU BUSCO DO BANCO
-                            break;
-                    }
-
-                    break;
-            }
-        } while (escolha != 4);
-
-        return true;
-    }
+		return true;
+	}
+        
+        public void calculaTotalPedido() {
+		totalPedido = 0;
+		for (CaixaLapis caixaLapis : caixasLapis)
+			totalPedido += caixaLapis.getValor();
+		for (Papel papel : papeis)
+			totalPedido += papel.getValor();
+		for (Caderno caderno : cadernos)
+			totalPedido += caderno.getValor();
+		totalPedido *= 1.18f;
+	}
 
     public String toString() {
-        return "CLIENTE" + "\n=========="
-                + "\nID: " + getId()
-                + cliente.Consulta()
-                + "\n=========="
-                + "\nDATA DO PEDIDO"
-                + "\n=========="
-                + "\n" + data.Consulta()
-                + "\n=========="
-                + "\nPEDIDOS"
-                + "\n=========="
-                + "\n" + cadernos
-                + "\n" + papeis
-                + "\n" + caixasLapis;
+		calculaTotalPedido();
+		return "CLIENTE" 
+                        + "\n==========" 
+                        + "\nID: " + getId() + cliente.Consulta() 
+                        + "\n=========="
+                        + "\nDATA DO PEDIDO" 
+                        + "\n==========" + "\n" + data.Consulta() 
+                        + "\n==========" + "\nPEDIDOS"
+                        + "\n==========" 
+                        + "\n" + cadernos 
+                        + "\n" + papeis 
+                        + "\n" + caixasLapis 
+                        + "\n TOTAL: "
+                        + getTotalPedido();
 
-    }
+	}
 
     @Override
     public String Consulta() {

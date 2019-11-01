@@ -171,8 +171,9 @@ public class Application {
 
                     break;
                 case 5:
-
-                    break;
+				for (Pedido pedidoNoBanco : dbPedidos)
+					System.out.println(pedidoNoBanco);
+				break;
                 default:
                     System.exit(0);
                     break;
