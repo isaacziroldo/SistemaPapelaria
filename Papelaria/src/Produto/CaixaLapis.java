@@ -46,7 +46,11 @@ public class CaixaLapis extends Produto implements Manipulacao {
         this.colorido = colorido;
     }
 
+    /*
+    Método Cadastro() implementado da interface Manipulacao.
+    Scanner como método de entrada de dados, usando os getters and setters.
     
+    */
 
     @Override
     public boolean Cadastro() {
@@ -66,6 +70,8 @@ public class CaixaLapis extends Produto implements Manipulacao {
 
         return true;
     }
+    //Retorno usando o super.toString para concatenar os atributos da superclasse
+    
     
     public String toString(){
         return "CAIXA DE LÁPIS | "
@@ -73,7 +79,11 @@ public class CaixaLapis extends Produto implements Manipulacao {
                 + " | Quantidade: " + getQuantidade()
                 + " | Colorido: " + isColorido();
     }
-
+    
+     /*
+    Metodo consulta() implementado da interface Manipulacao.
+    Retornando o metodo toString().
+    */
     @Override
     public String Consulta() {
         return toString();

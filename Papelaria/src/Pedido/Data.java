@@ -46,6 +46,12 @@ public class Data implements Manipulacao {
     public void setAno(int ano) {
         this.ano = ano;
     }
+    
+    /*
+    Método Cadastro() implementado da interface Manipulacao.
+    Scanner como método de entrada de dados, usando os getters and setters.
+    
+    */
 
     @Override
     public boolean Cadastro() {
@@ -66,6 +72,11 @@ public class Data implements Manipulacao {
     public String toString(){
         return "Data: " + getDia() + "/" + getMes() + "/" + getAno();
     }
+    /*
+    Metodo consulta() implementado da interface Manipulacao.
+    Retornando o metodo toString().
+    */
+    
 
     @Override
     public String Consulta() {

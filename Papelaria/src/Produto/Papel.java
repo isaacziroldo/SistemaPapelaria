@@ -112,7 +112,11 @@ public class Papel extends Produto implements Manipulacao {
         this.paltado = paltado;
     }
 
+     /*
+    Método Cadastro() implementado da interface Manipulacao.
+    Scanner como método de entrada de dados, usando os getters and setters.
     
+    */
 
     @Override
 
@@ -145,6 +149,8 @@ public class Papel extends Produto implements Manipulacao {
         return true;
     }
     
+    //Retorno usando o super.toString para concatenar os atributos da superclasse
+    
     public String toString(){
         return "PAPEL | "
                 + super.toString()
@@ -155,6 +161,11 @@ public class Papel extends Produto implements Manipulacao {
                 + " | Gramatura: " + getGramatura()
                 + " | Paltado: " + isPaltado();
     }
+    
+     /*
+    Metodo consulta() implementado da interface Manipulacao.
+    Retornando o metodo toString().
+    */
 
     @Override
     public String Consulta() {

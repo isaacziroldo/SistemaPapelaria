@@ -79,6 +79,12 @@ public class Caderno extends Produto implements Manipulacao {
     public void setCapaDura(boolean capaDura) {
         this.capaDura = capaDura;
     }
+    
+    /*
+    Método Cadastro() implementado da interface Manipulacao.
+    Scanner como método de entrada de dados, usando os getters and setters.
+    
+    */
 
     @Override
     public boolean Cadastro() {
@@ -103,6 +109,8 @@ public class Caderno extends Produto implements Manipulacao {
         return true;
 
     }
+    
+    //Retorno usando o super.toString para concatenar os atributos da superclasse
 
     public String toString() {
         return "\nCADERNO  | "
@@ -112,6 +120,11 @@ public class Caderno extends Produto implements Manipulacao {
                 + " | Tipo: " + getTipo() 
                 + " | Capadura: " + isCapaDura();
     }
+    
+    /*
+    Metodo consulta() implementado da interface Manipulacao.
+    Retornando o metodo toString().
+    */
 
     @Override
     public String Consulta() {

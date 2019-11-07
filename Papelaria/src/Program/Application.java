@@ -115,8 +115,8 @@ public class Application {
 				break;
 			case 2:
 				Pedido pedido = new Pedido();
-				pedido.Cadastro();
-				dbPedidos.add(pedido);
+				if (pedido.Cadastro())
+					dbPedidos.add(pedido);
 				break;
 			case 3:
 

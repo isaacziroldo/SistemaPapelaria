@@ -70,6 +70,12 @@ public class Cliente implements Manipulacao {
                 + " | CPF: " + getCpf()
                 + " | Telefone: " + getTelefone();
     }
+    
+    /*
+    Método Cadastro() implementado da interface Manipulacao.
+    Scanner como método de entrada de dados, usando os getters and setters.
+    
+    */
 
     @Override
     public boolean Cadastro() {
@@ -84,6 +90,11 @@ public class Cliente implements Manipulacao {
         
         return true;
     }
+    
+    /*
+    Metodo consulta() implementado da interface Manipulacao.
+    Retornando o metodo toString().
+    */
 
     @Override
     public String Consulta() {
